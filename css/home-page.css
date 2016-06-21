@@ -7,9 +7,19 @@
 }
 
 .navbar-right {
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 400;;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    padding-top: 5px;
+    margin-right: 10px;
+    color: blue;
 }
+
+.navbar-right li {
+    margin-right: -10px;
+}
+
+
 
 /*********** Main Content ************ */
 
@@ -20,6 +30,8 @@
     margin-right: 10%;
 }
 
+
+/****** Portfolio *******/
 .portfolio-item {
     margin-bottom: 25px;
 }
@@ -36,13 +48,6 @@
     text-align: center;
 }
 
-#profile-image{
-    max-width:200px;
-    max-height:200px;
-    margin: auto;
-    margin-top: 15px;
-    vertical-align: middle;
-}
 
 .fade {
     opacity: 1;
@@ -55,6 +60,16 @@
     opacity: 0.7;
 }
 
+/******* Resume Line ********/
+#resume-slash {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 70px;
+    font-weight: 100;
+    font-color:#E5E4E2;
+}
+
+
 
 /*************** Footer **************/
 footer {
@@ -63,17 +78,46 @@ footer {
     box-sizing: border-box;
     width: 100%;
     text-align: left;
-    font: 16px sans-serif;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
 
-    padding: 55px 50px;
+    padding: 55px 30px;
     margin-top: 80px;
 }
 
-#footer-content{
-    margin: auto;
-    width: 600px;
+
+.inline {
+    display: inline;
+
 }
 
-.inline{
-    display: inline;
+#profile-image{
+    max-width:200px;
+    max-height:200px;
+    margin: auto;
+    margin-top: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+    float: right;
+}
+
+#footer-text {
+    margin-top: 50px;
+    margin-left: 5px;
+
+}
+
+footer a a:hover, footer a:visited, footer a:link, footer a:active {
+    text-decoration: none;
+    color: #404040
+}
+
+i {
+    color: #E5E4E2;
+}
+
+
+
+.icon-background {
+    color: #404040;
 }
