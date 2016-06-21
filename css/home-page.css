@@ -12,7 +12,6 @@
     font-size: 18px;
     padding-top: 5px;
     margin-right: 10px;
-    color: blue;
 }
 
 .navbar-right li {
@@ -63,25 +62,32 @@
 /******* Resume Line ********/
 
 #resume-center-div {
-    margin-left: 20%;
-    margin-right: 40%;
-    width: 400px;
+    margin-top: 40px;
+    margin-left: 15%;
+    margin-right: 10%;
 }
 
 
 #resume-slash {
     text-align: center;
-    padding-top: 5px;
+    margin-top: 40px;
     font-size: 70px;
     font-weight: 100;
     font-color:#E5E4E2;
 }
 
 .resume-button {
-    margin-top: 40px;
-    vertical-align: middle;
-
+    margin-top: 20px;
 }
+
+#resume-button-left {
+    margin-right: 30px;
+}
+
+#resume-button-right {
+    margin-left: 30px;
+}
+
 .inline {
     display: inline-block;
 
@@ -118,7 +124,7 @@ footer {
 
 }
 
-footer a a:hover, footer a:visited, footer a:link, footer a:active {
+footer a:hover, footer a:visited, footer a:link, footer a:active {
     text-decoration: none;
     color: #404040
 }
