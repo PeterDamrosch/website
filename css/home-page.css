@@ -61,6 +61,14 @@
 }
 
 /******* Resume Line ********/
+
+#resume-center-div {
+    margin-left: 20%;
+    margin-right: 40%;
+    width: 400px;
+}
+
+
 #resume-slash {
     text-align: center;
     padding-top: 5px;
@@ -69,6 +77,15 @@
     font-color:#E5E4E2;
 }
 
+.resume-button {
+    margin-top: 40px;
+    vertical-align: middle;
+
+}
+.inline {
+    display: inline-block;
+
+}
 
 
 /*************** Footer **************/
@@ -83,12 +100,6 @@ footer {
 
     padding: 55px 30px;
     margin-top: 80px;
-}
-
-
-.inline {
-    display: inline;
-
 }
 
 #profile-image{
@@ -116,7 +127,9 @@ i {
     color: #E5E4E2;
 }
 
-
+.inline-footer {
+    display: inline;
+}
 
 .icon-background {
     color: #404040;
