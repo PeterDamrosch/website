@@ -1,8 +1,23 @@
 
-/* Padding for the Nav Bar */
+/**************** Nav **************** */
 .navbar {
     background-color: white;
     padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.navbar-right {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;;
+}
+
+/*********** Main Content ************ */
+
+
+/****** Intro Text ******/
+.intro-text {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .portfolio-item {
@@ -14,7 +29,7 @@
 }
 
 .section-label {
-    text-align: center;
+    text-align: left;
 }
 
 .center {
