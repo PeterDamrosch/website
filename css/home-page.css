@@ -1,9 +1,11 @@
 
 /**************** Nav **************** */
+
 .navbar {
     background-color: white;
     padding-top: 30px;
     padding-bottom: 30px;
+    border-right-color: white;
 }
 
 .navbar-right {
@@ -18,20 +20,28 @@
     margin-right: -10px;
 }
 
-
+.navbar-default .navbar-nav>li>a {
+    color: #322E2D;
+}
 
 /*********** Main Content ************ */
 
+/****** General  *******/
 
-/****** Intro Text ******/
-.intro-text {
-    margin-right: 10%;
-    margin-left: 20%
+/* Basic text color */
 
+h1,h2,h3,h4,h5,h6,p {
+    color: #322E2D;
 }
 
 
-/****** General Projects *******/
+hr.purple1 {
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-color: #8e44ad;
+}
+
 .portfolio-item {
     margin-bottom: 25px;
 }
@@ -39,6 +49,7 @@
 .section-label {
     text-align: left;
 }
+
 
 .center {
     text-align: center;
@@ -55,10 +66,35 @@
     opacity: 0.7;
 }
 
+
+/****** Intro Text ******/
+.intro-text {
+    margin-right: 10%;
+    margin-left: 20%
+
+}
+
+
+/****** Projects Row *******/
+
+.post-title {
+    text-align: center;
+}
+
+#projects-row p{
+    margin-top: 10px;
+
+}
+
+
 /******** Blog Row **********/
 
 #blog-row {
     margin-bottom: 50px;
+}
+
+#blog-row h5 {
+    font-style: italic;
 }
 
 /******* Resume Line ********/
