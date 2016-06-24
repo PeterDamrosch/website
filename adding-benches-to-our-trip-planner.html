@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog: Benches and Bus Stops</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome - Can Remove for CDN Later -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Clean Blog CSS -->
+    <link href="css/clean-blog.css" rel="stylesheet">
+
+    <!-- My Custom CSS -->
+    <link href="css/home-page.css" rel="stylesheet">
+    <link href="css/blog-post.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href='fonts/lora.css' rel='stylesheet' type='text/css'>
+    <link href='fonts/open-sans.css' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-static-top-top">
+    <div class="container nav-style">
+        <h3 class="navbar-left">Peter Damrosch</h3>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#projects-row">Projects</a></li>
+                <li><a href="#blog-row">Blog</a></li>
+                <li><a href="#resume-row">Resume</a></li>
+                <li><a href="#contact-row">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container blog-post">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-xs-12 col-sm-10">
+            <h2>Adding Benches to Our Trip Planner</h2>
+            <h4>Posted on June 23rd, 2016</h4>
+            <p>While there aren’t fixed bus stops in Amman—you can get on or off a bus anywhere—the Greater Amman Municipality (GAM) has installed a variety of benches and bus shelters over the years, like this one:</p>
+            <img class="img-responsive" src="img/blog-img/bench10.png">
+            <p>Our group thought it’d be great if we could incorporate the locations of the bus shelters in the trip-planner app we’re developing. Given how unpredictable buses can be, it’d be great if people using our app were steered towards the nearest bench so they could sit as they wait for the bus.</p>
+            <p>The Amman municipality gave us a GIS dataset with the locations of all of the benches in Amman.</p>
+            <img class="img-responsive" src="img/blog-img/gam-benches.png">
+            <p>One of the larger goals of the project is to promote a spirit of open civic data. When it comes to sharing data, there certainly isn’t a consenus within the Greater Amman Municipality. Some departments and people embrace the idea that a city and its government gain value by sharing information on the city. Gathering dusts on shelves and in harddrives, data has little use. Put out into the public, civic-minded groups and businesses can put it to use. This is of course what our group believes. Other departments in the municipality hold the view that data should generate revenue and that once the government gives it away for free they can’t get it back. </p>
+            <p>The tension between these different views results in some odd witholdings. The government gave us a dataset of all the street names in Amman, but wouldn’t give us the houses numbers for the buildings on those streets. They gave us neighborhood names and boundaries, but wouldn’t share their dataset of landmarks which would help in navigating those neighborhoods. And when we asked for elevation data, the response was a polite: “No way”. Luckily, there are other sources of elevation data so our trip planner won’t send you hiking up big hills unnecessarily.</p>
+            <p>It’s frustrating to know that there’s data locked away which could be incredibly helpful. But it’s also a challenge that makes sense in some ways. Since our group believes in the value of open data, it’s encumbent on us to put our money where our mouths are and prove the case. The bus shelters are a particularly good demonstration ground.</p>
+            <p>The international standard for organizing transit data is the General Transit Feed System which uses the stop-locations as the backbone of how it represents transit. Since there are no fixed stops in Amman, we’ve had to simulate “stops” every 200 meters to represent a bus’s route. Here are our simulated stops which you can see track the contours of the roads the buses travel along:</p>
+            <img class="img-responsive" src="img/blog-img/our-stops.png">
+            <p>Using the data GAM, I wrote script in Python to check to see if there’s a bus shelter nearby one of our simulated stops. If there is, I’ve moved our stop to coincide with the GAM bus shelter.</p>
+            <img class="img-responsive" src="img/blog-img/overlapping-stops.png">
+            <p>There are a few real but managable wrinkles with this approach. First of all, GTFS uses stops in conjunction with fixed time schedules to tell people where to go and when to be there. That means that when we move the stops but don’t update the times, the schedule will be slightly off. In our case, our timing data is so imprecise anyways, that shifting stops by a few dozen meters doesn’t really register. The larger issue is that by programmatically moving stops in this way, I may have pulled a stop that was supposed to be on one road onto a neighborhing road where the bus doesn’t run (if it’s pulled along the same path as the bus, that’s fine). To hedge against this, I kept the radius for moving stops at a low threshold of 100 meters. I’ll then manually check the stops that have moved to see if stops have been moved when they shouldn’t have.</p>
+            <p>
+                GTFS stops have a location_type column which is the GTFS way of designating “stations”. The manual defines a station as “a physical structure or area that contains one or more stops.”  Labeling roadside benches as “stations” may be a bit grand, but it does meet their definition of a physical structure. Plus, it’s either that or use the wheelchair_boarding column, which would certainly be off.
+            </p>
+            <p>I’m looking forward to seeing how our app developers at Not Another Fruit visually show that there’s a bench nearby where someone can sit. Longer term, I hope this bolsters our case for the value that the government can get in sharing data. Afterall, they went through all the trouble of setting up benches around the city. By simply sharing that data, people will find it easier to use the benches. Even if it doesn’t shake the municipality from their closed-data ways, if even a few people have a more pleasant transit experience by being able to rest as the bus comes, then it’s certainly been worth our time.</p>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="footer-distributed" id="contact-row">
+    <div class="row">
+        <div class="col-xs-6">
+            <img class="img-responsive inline" id="profile-image" src="img/peter3.png" alt="">
+        </div>
+        <div class="col-xs-6">
+            <div id="footer-text">
+                <div class="row">
+                        <span class="fa-stack">
+                            <i class ="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-envelope fa-stack-1x"></i>
+                        </span>
+                    <p class="inline-footer">peter.damrosch@gmail.com</p>
+                </div>
+                <div class="row">
+                        <span class="fa-stack">
+                            <i class ="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-phone fa-stack-1x"></i>
+                        </span>
+                    <p class="inline-footer">(917) 863-9952</p>
+                </div>
+                <div class="row">
+                       <span class="fa-stack">
+                            <i class ="fa fa-circle fa-stack-2x icon-background"></i>
+                            <a href="https://twitter.com/PeterDamrosch"><i class="fa fa-twitter fa-stack-1x"></i></a>
+                        </span>
+                    <a href="https://twitter.com/PeterDamrosch">@PeterDamrosch</a>
+                </div>
+                <div class="row">
+                       <span class="fa-stack">
+                            <i class ="fa fa-circle fa-stack-2x icon-background"></i>
+                            <a href="https://github.com/PeterDamrosch"><i class="fa fa-github fa-stack-1x"></i></a>
+                        </span>
+                    <a href="https://github.com/PeterDamrosch">github.com/PeterDamrosch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.js"></script>
+
+</body>
+
+</html>
+
+
+</body>
+</html>

@@ -35,6 +35,15 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
+a:-webkit-any-link img {
+    cursor: pointer !important;
+}
+
+.img-rounded {
+    cursor: pointer
+}
+
+
 hr.purple1 {
     border-width: 0px;
     border-bottom-width: 2px;
@@ -180,3 +189,5 @@ i {
 .icon-background {
     color: #404040;
 }
+
+
